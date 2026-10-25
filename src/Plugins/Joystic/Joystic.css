@@ -1,0 +1,348 @@
+﻿:host {
+	position: fixed !important;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	width: 100vw;
+	height: 100vh;
+	height: 100dvh;
+	display: block;
+	pointer-events: none;
+}
+.ui-component-root {
+	position: absolute;
+	inset: 0;
+}
+#controls[hidden] {
+	display: none;
+}
+#controls {
+	position: absolute;
+	inset: 0;
+}
+button,
+#stick {
+	pointer-events: auto;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+button {
+	padding: 0;
+	color: #fff;
+	font:
+		10px Arial,
+		sans-serif;
+	outline: none;
+	cursor: pointer;
+}
+#stick {
+	position: absolute;
+	left: 50%;
+	bottom: max(160px, env(safe-area-inset-bottom));
+	margin-left: -45px;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+#stick img {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+#thumb {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -18px 0 0 -18px;
+	width: 36px;
+	height: 36px;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	pointer-events: none;
+}
+#attack {
+	display: none;
+	position: absolute;
+	right: max(24px, env(safe-area-inset-right));
+	bottom: max(160px, env(safe-area-inset-bottom));
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.15);
+	font-size: 0;
+}
+#attack::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.6);
+}
+#attack:active::before {
+	background: rgba(255, 255, 255, 0.85);
+}
+#shortcuts {
+	position: absolute;
+	bottom: max(80px, env(safe-area-inset-bottom));
+	left: 2%;
+	width: 96%;
+	height: 32px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#shortcuts [data-slot] {
+	position: relative;
+	flex: 0 0 30px;
+	box-sizing: content-box;
+	width: 30px;
+	height: 30px;
+	background: transparent;
+	border: 1px dashed #fff;
+	border-radius: 3px;
+}
+#shortcuts [aria-disabled='true'] {
+	opacity: 0.7;
+	border: 1px dashed #fff;
+}
+#shortcuts .aiming {
+	outline: 1px solid #ffff63;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+#shortcuts .icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-size: 21px 21px;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+.shortcut-key {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	font-size: 10px;
+	text-shadow: 1px 1px #222;
+	pointer-events: none;
+}
+#shortcut-switch {
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
+	border: 0;
+	background: transparent url('__MENU_SPRITE__') no-repeat -154px -44px / 240px;
+	opacity: 0.8;
+	font-size: 0;
+}
+#orientation {
+	position: absolute;
+	right: max(12px, env(safe-area-inset-right));
+	top: max(12px, env(safe-area-inset-top));
+	padding: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.15);
+}
+@media (orientation: landscape) {
+	#stick {
+		left: max(80px, env(safe-area-inset-left));
+		bottom: max(80px, env(safe-area-inset-bottom));
+		margin-left: 0;
+	}
+	#attack {
+		display: block;
+		right: max(80px, env(safe-area-inset-right));
+		bottom: max(80px, env(safe-area-inset-bottom));
+	}
+	#shortcuts {
+		left: auto;
+		right: max(136px, env(safe-area-inset-right));
+		bottom: max(136px, env(safe-area-inset-bottom));
+		width: 0;
+		height: 0;
+		display: block;
+	}
+	#shortcuts [data-slot] {
+		position: absolute;
+	}
+	#shortcuts [data-position='1'] {
+		top: -76px;
+		left: -2px;
+	}
+	#shortcuts [data-position='2'] {
+		top: -62px;
+		right: -78px;
+	}
+	#shortcuts [data-position='3'] {
+		top: -17px;
+		right: -102px;
+	}
+	#shortcuts [data-position='4'] {
+		top: 28px;
+		right: -102px;
+	}
+	#shortcuts [data-position='5'] {
+		top: 68px;
+		right: -58px;
+	}
+	#shortcuts [data-position='6'] {
+		top: 68px;
+		right: -6px;
+	}
+	#shortcuts [data-position='7'] {
+		top: 28px;
+		right: 40px;
+	}
+	#shortcuts [data-position='8'] {
+		top: -17px;
+		right: 40px;
+	}
+	#shortcuts [data-position='9'] {
+		top: -62px;
+		right: 18px;
+	}
+	#shortcut-switch {
+		position: fixed;
+		display: block;
+		left: auto;
+		top: auto;
+		right: max(20px, env(safe-area-inset-right));
+		bottom: max(20px, env(safe-area-inset-bottom));
+		width: 32px;
+		height: 32px;
+		font-size: 0;
+		z-index: 1;
+	}
+}
+#chat-toggle {
+	position: absolute;
+	left: calc(50% - 19px);
+	bottom: max(20px, env(safe-area-inset-bottom));
+	width: 38px;
+	height: 38px;
+	border: 0;
+	background: transparent url('__MENU_SPRITE__') no-repeat -120px -64px / 320px;
+	opacity: 0.9;
+}
+#chat-toggle[aria-expanded='true'] {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+#plugin-chat[hidden],
+#plugin-chat [hidden] {
+	display: none;
+}
+#plugin-chat {
+	position: absolute;
+	bottom: max(74px, env(safe-area-inset-bottom));
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 8px;
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 5px;
+	color: #fff;
+	font:
+		12px Arial,
+		sans-serif;
+	text-align: left;
+	pointer-events: auto;
+	z-index: 3;
+}
+#plugin-chat .chat-log {
+	max-height: min(7em, 35vh);
+	min-height: 3em;
+	/* Retain native touch scrolling despite the custom scrollbar's inline overflow:hidden. */
+	overflow-y: auto !important;
+	overflow-x: hidden;
+	touch-action: pan-y;
+	overscroll-behavior-y: contain;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+	margin-bottom: 5px;
+	white-space: pre-line;
+	overflow-wrap: anywhere;
+	user-select: text;
+	cursor: auto;
+}
+#plugin-chat .chat-log::-webkit-scrollbar {
+	display: none;
+}
+#plugin-chat .chat-log > .ro-custom-scrollbar {
+	display: none !important;
+}
+#plugin-chat .chat-log {
+	padding-right: 0 !important;
+}
+#plugin-chat .chat-lines > div {
+	margin: 5px 0;
+	font-size: 11px;
+	font-weight: normal;
+}
+#plugin-chat .item-link,
+#plugin-chat .playername,
+#plugin-chat a {
+	cursor: pointer;
+	text-decoration: underline;
+}
+#plugin-chat .chat-input {
+	display: flex;
+	gap: 5px;
+	padding: 8px 0;
+	margin: 0;
+}
+#plugin-chat input,
+#plugin-chat select,
+#plugin-chat .chat-send {
+	box-sizing: border-box;
+	height: 28px;
+	min-width: 0;
+	border-radius: 2px;
+	font:
+		11px Arial,
+		sans-serif;
+}
+#plugin-chat input {
+	background: transparent;
+	color: #fff;
+	border: 1px solid #eee;
+	padding: 5px;
+	user-select: text;
+	pointer-events: auto;
+}
+#plugin-chat .chat-message {
+	flex: 1;
+}
+#plugin-chat .chat-recipient {
+	width: 70px;
+}
+#plugin-chat .chat-channel {
+	width: 62px;
+	padding: 0;
+	border: 1px dashed #eee;
+	background: #222;
+	color: #fff;
+	pointer-events: auto;
+}
+#plugin-chat .chat-send {
+	width: 48px;
+	background: #eee;
+	color: #222;
+	border: 0;
+}
+#plugin-chat .chat-status {
+	font-size: 11px;
+	color: #ffff63;
+}
+@media (orientation: landscape) {
+	#plugin-chat {
+		left: 50%;
+		transform: translateX(-50%);
+		width: min(380px, 96vw);
+	}
+}
