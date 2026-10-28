@@ -1,0 +1,26 @@
+<div id="ThemeEngine">
+	<div class="titlebar" data-background="basic_interface/titlebar_mid.bmp">
+		<span>Theme Engine</span>
+		<ui-button
+			class="close"
+			bg="basic_interface/sys_close_off.bmp"
+			hover="basic_interface/sys_close_on.bmp"
+			aria-label="Close"
+		>
+		</ui-button>
+	</div>
+	<div class="panel">
+		<label for="theme">Interface theme</label>
+		<select id="theme" aria-describedby="description"></select>
+		<p id="description">
+			Changes apply immediately and are saved on this device. Artwork skins use matching files; color presets tint
+			windows and icons together.
+		</p>
+		<button type="button" class="reset">Restore Classic</button>
+		<button type="button" class="import">Load theme folder</button>
+		<button type="button" class="unload" disabled>Remove imported theme</button>
+		<input class="folder" type="file" webkitdirectory multiple hidden />
+		<div class="drop-zone">Drop an extracted theme folder here</div>
+		<p class="import-status" role="status" aria-live="polite"></p>
+	</div>
+</div>
